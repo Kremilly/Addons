@@ -1,5 +1,4 @@
 from apis.qrcode import QRCode
-from apis.sci_hub import SciHub
 from apis.pdf_info import PDFInfo
 from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
@@ -35,12 +34,6 @@ def wikipedia():
         'location': request.args.get('location'),
         'thumb_size': request.args.get('thumb_size'),
         'short_summary': request.args.get('short_summary'),
-    }).get()
-
-@app.route('/scihub', methods=['GET'])
-def scihub():
-    return SciHub({
-        'paper': request.args.get('paper')
     }).get()
     
 @app.route('/pdfscrape', methods=['GET'])
