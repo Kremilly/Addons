@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href="{{ url_for('static', filename='bundle.css', _external=True) }}">
+    <title>Scimon: URL Filter</title>
+</head>
+<body>
+    <div class="box">
+        <div class="logo"></div>
+
+        <div class="box-title">Are you sure you want to go to the URL?</div>
+        <input type="text" id="url" autocomplete="off" readonly>
+
+        <button id="backToHome" class="back">Go to Scibun.com</button>
+        <button id="forwardUrl" class="forward">I understand the risks.</button>
+    </div>
+
+    <script>
+        let urlParams = new URLSearchParams(window.location.search);
+        let urlFilter = urlParams.get('url');
+
+       if (urlFilter) {
+            document.querySelector('#url').value = urlFilter;
+        } else {
+            window.location.href = 'https://scibun.com';
+        }
+
+        document.querySelector('#backToHome').addEventListener( 'click', function () {
+            window.location.href = 'https://scibun.com';
+        });
+
+        document.querySelector('#forwardUrl').addEventListener( 'click', function () {
+            window.location.href = urlFilter;
+        });
+    </script>
+</body>
+</html>

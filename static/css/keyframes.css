@@ -1,0 +1,11 @@
+@keyframes border-and-bg {
+    0% {
+        background: inherit;
+        border-left-width: 0;
+    }
+
+    100% {
+        border-left-width: .5em;
+        background: var(--color-bg);
+    }
+}

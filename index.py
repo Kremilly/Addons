@@ -4,13 +4,22 @@ from apis.pdf_thumb import PDFThumb
 from apis.wikipedia import Wikipedia
 from apis.pdf_scrape import PDFScrape
 
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, render_template, request
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
     return redirect('https://scibun.com')
+
+@app.route('/urlfilter', methods=['GET'])
+def health():
+    return render_template(
+        'filter.html',
+        
+        url_root = request.url_root,
+        url_filter = request.args.get('url')
+    )
 
 @app.route('/qrcode', methods=['GET'])
 def qrcode():
