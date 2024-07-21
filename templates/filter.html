@@ -18,22 +18,23 @@
     </div>
 
     <script>
-        let urlParams = new URLSearchParams(window.location.search);
-        let urlFilter = urlParams.get('url');
+        let urlHome = 'https://scibun.com'
+        let urlParams = new URLSearchParams(window.location.search)
+        let urlFilter = urlParams.get('url')
 
-       if (urlFilter) {
-            document.querySelector('#url').value = urlFilter;
+        if (urlFilter) {
+            document.querySelector('#url').value = urlFilter
         } else {
-            window.location.href = 'https://scibun.com';
+            window.location.href = urlHome
         }
 
         document.querySelector('#backToHome').addEventListener( 'click', function () {
-            window.location.href = 'https://scibun.com';
-        });
+            window.location.href = urlHome
+        })
 
         document.querySelector('#forwardUrl').addEventListener( 'click', function () {
-            window.location.href = urlFilter;
-        });
+            window.location.href = urlFilter
+        })
     </script>
 </body>
 </html>
