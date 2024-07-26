@@ -5,7 +5,7 @@
     }
 
     100% {
-        border-left-width: .5em;
+        border-left-width: .6em;
         background: var(--color-bg);
     }
 }
